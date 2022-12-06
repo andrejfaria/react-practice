@@ -10,9 +10,24 @@ import useSyncLocalStorageWithState from "./customHook"
 export default function Greeting() {
 
 
-  const initialName = ''
-  const [name, setName] = useSyncLocalStorageWithState('name', initialName)
+  const initialName = 'OK'
+  const [name, setName] = useSyncLocalStorageWithState(
+    testing(),
+    initialName)
   const [count, setCount] = useState(0)
+
+
+
+  function handleChange(event: any) {
+    event.preventDefault()
+    setName(event.target.value)
+  }
+
+
+  function testing() {
+    const r = false
+    return r
+  }
   // 💣 -  console.log('rendering')
 
 
@@ -22,9 +37,6 @@ export default function Greeting() {
 
 
 
-  function handleChange(event) {
-    setName(event.target.value)
-  }
 
   // useEffect(() => {
   //   console.log('useEffect called')
@@ -38,7 +50,7 @@ export default function Greeting() {
     <div>
       <form>
         <label htmlFor="name">Name: </label>
-        <input onChange={handleChange} id="name" />
+        <input value={name} onChange={handleChange} id="name" />
       </form>
       {name ? <strong>Hello {name} </strong> : 'Please type your name'}
       <button onClick={() => setCount((prevCount) => prevCount + 1)}> {count}🐨 </button>
