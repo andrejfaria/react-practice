@@ -4,29 +4,35 @@
 
 
 import { useEffect, useState } from "react"
+import useSyncLocalStorageWithState from "./customHook"
 
 
 export default function Greeting() {
 
-  // 💣 -  console.log('rendering')
 
   const initialName = ''
-
-  const [name, setName] = useState(
-    () => window.localStorage.getItem('name') || initialName
-  )
-
+  const [name, setName] = useSyncLocalStorageWithState('name', initialName)
   const [count, setCount] = useState(0)
+  // 💣 -  console.log('rendering')
+
+
+  // const [name, setName] = useState(
+  //   () => window.localStorage.getItem('name') || initialName
+  // )
+
+
 
   function handleChange(event) {
-    //  update the name here based on event.target.value
     setName(event.target.value)
   }
 
-  useEffect(() => {
-    console.log('useEffect called')
-    window.localStorage.setItem('name', name)
-  }, [name]) // === Object.is, 
+  // useEffect(() => {
+  //   console.log('useEffect called')
+  //   window.localStorage.setItem('name', name)
+  // }, [name]) // === Object.is, 
+
+
+
 
   return (
     <div>
