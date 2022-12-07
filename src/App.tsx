@@ -5,6 +5,7 @@ import './App.css'
 import Greeting from './useEffect/useEffect'
 import Parent from './hook-flow/hookflow'
 import StateExample from './state/state'
+import StateExample2 from './state/StateColocation'
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
     <>
       {/* <Greeting /> */}
       {/* <Parent /> */}
-      <StateExample />
+      <StateExample2 />
 
     </>
   )
