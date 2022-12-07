@@ -5,8 +5,8 @@ import { useState } from "react"
 /**
  * Neste caso apenas o componente Name utiliza o parametro name, 
  * Assim em vez de ser gerido pelo componente Pai é gerido pelo proprio componente
- * cada vez q o nome altera, nao renderiza o componente todo
- * State Colocation 
+ * 
+ * State Colocation
  */
 
 function Name() {
