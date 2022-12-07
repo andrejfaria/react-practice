@@ -53,35 +53,35 @@ function Child() {
 }
 
 export default function Parent() {
-  console.log('%cApp: render start', 'color: MediumSpringGreen')
+  console.log('%cParent: render start', 'color: MediumSpringGreen')
 
   const [showChild, setShowChild] = useState(() => {
-    console.log('%cApp: useState(() => false)', 'color: tomato')
+    console.log('%cParent: useState(() => false)', 'color: tomato')
     return false
   })
 
   useEffect(() => {
-    console.log('%cApp: useEffect(() => {})', 'color: LightCoral')
+    console.log('%cParent: useEffect(() => {})', 'color: LightCoral')
     return () => {
-      console.log('%cApp: useEffect(() => {}) cleanup 🧹', 'color: LightCoral')
+      console.log('%cParent: useEffect(() => {}) cleanup 🧹', 'color: LightCoral')
     }
   })
 
   useEffect(() => {
-    console.log('%cApp: useEffect(() => {}, [])', 'color: MediumTurquoise')
+    console.log('%cParent: useEffect(() => {}, [])', 'color: MediumTurquoise')
     return () => {
       console.log(
-        '%cApp: useEffect(() => {}, []) cleanup 🧹',
+        '%cParent: useEffect(() => {}, []) cleanup 🧹',
         'color: MediumTurquoise',
       )
     }
   }, [])
 
   useEffect(() => {
-    console.log('%cApp: useEffect(() => {}, [showChild])', 'color: HotPink')
+    console.log('%cParent: useEffect(() => {}, [showChild])', 'color: HotPink')
     return () => {
       console.log(
-        '%cApp: useEffect(() => {}, [showChild]) cleanup 🧹',
+        '%cParent: useEffect(() => {}, [showChild]) cleanup 🧹',
         'color: HotPink',
       )
     }
@@ -111,7 +111,7 @@ export default function Parent() {
     </>
   )
 
-  console.log('%cApp: render end', 'color: MediumSpringGreen')
+  console.log('%cParent: render end', 'color: MediumSpringGreen')
 
   return element
 }
