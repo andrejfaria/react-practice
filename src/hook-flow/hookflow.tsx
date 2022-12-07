@@ -1,14 +1,14 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 
 function Child() {
   console.log('%c    Child: render start', 'color: MediumSpringGreen')
 
-  const [count, setCount] = React.useState(() => {
+  const [count, setCount] = useState(() => {
     console.log('%c    Child: useState(() => 0)', 'color: tomato')
     return 0
   })
 
-  React.useEffect(() => {
+  useEffect(() => {
     console.log('%c    Child: useEffect(() => {})', 'color: LightCoral')
     return () => {
       console.log(
@@ -18,7 +18,7 @@ function Child() {
     }
   })
 
-  React.useEffect(() => {
+  useEffect(() => {
     console.log(
       '%c    Child: useEffect(() => {}, [])',
       'color: MediumTurquoise',
@@ -31,7 +31,7 @@ function Child() {
     }
   }, [])
 
-  React.useEffect(() => {
+  useEffect(() => {
     console.log('%c    Child: useEffect(() => {}, [count])', 'color: HotPink')
     return () => {
       console.log(
@@ -42,7 +42,7 @@ function Child() {
   }, [count])
 
   const element = (
-    <button onClick={() => setCount(previousCount => previousCount + 1)}>
+    <button onClick={() => setCount((previousCount) => previousCount + 1)}>
       {count}
     </button>
   )
@@ -55,19 +55,19 @@ function Child() {
 export default function Parent() {
   console.log('%cApp: render start', 'color: MediumSpringGreen')
 
-  const [showChild, setShowChild] = React.useState(() => {
+  const [showChild, setShowChild] = useState(() => {
     console.log('%cApp: useState(() => false)', 'color: tomato')
     return false
   })
 
-  React.useEffect(() => {
+  useEffect(() => {
     console.log('%cApp: useEffect(() => {})', 'color: LightCoral')
     return () => {
       console.log('%cApp: useEffect(() => {}) cleanup 🧹', 'color: LightCoral')
     }
   })
 
-  React.useEffect(() => {
+  useEffect(() => {
     console.log('%cApp: useEffect(() => {}, [])', 'color: MediumTurquoise')
     return () => {
       console.log(
@@ -77,7 +77,7 @@ export default function Parent() {
     }
   }, [])
 
-  React.useEffect(() => {
+  useEffect(() => {
     console.log('%cApp: useEffect(() => {}, [showChild])', 'color: HotPink')
     return () => {
       console.log(
